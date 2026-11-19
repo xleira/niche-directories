@@ -1,51 +1,299 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Clothing brands that say where they make it, in Europe</title><meta name="description" content="Every brand here publishes its own page naming where the garments are cut and sewn. Each entry links to that proof.">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Clothing brands that say where they make it, in Europe</title>
+<meta name="description" content="Every brand here publishes its own page naming where the garments are cut and sewn. Each entry links to that proof.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0b0b0c;--fg:#ececec;--mut:#8d8d92;--line:#232326;--acc:#ff7a2f}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,sans-serif}
-main{max-width:860px;margin:0 auto;padding:36px 20px 80px}h1{font-size:2rem;line-height:1.15;margin:0 0 8px}
-.tag{color:var(--mut);margin:0 0 28px}.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
-.chip{border:1px solid var(--line);background:none;color:var(--fg);padding:6px 12px;border-radius:99px;cursor:pointer;font:inherit;font-size:.85rem}
-.chip.on{border-color:var(--acc);color:var(--acc)}
-.card{border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:0 0 12px}
-.card h2{margin:0 0 4px;font-size:1.15rem}.cov{color:var(--acc);font-size:.85rem;margin:0 0 8px}
-.meta{color:var(--mut);font-size:.85rem}a{color:var(--fg)}a.p{color:var(--acc)}
-h3{margin:40px 0 10px;font-size:1rem;color:var(--mut);text-transform:uppercase;letter-spacing:.06em}
-li{margin:0 0 8px}footer{margin-top:48px;color:var(--mut);font-size:.8rem}
+:root{
+  --bg:#121110; --panel:#171614; --ink:#ece7de; --mut:#9d968c; --faint:#6d675f;
+  --line:#292723; --line-soft:#201e1b; --acc:#e0602a; --acc-dim:#a34a22;
+  --serif:"Fraunces",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+::selection{background:var(--acc);color:#121110}
+a{color:inherit}
+header.site{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:22px clamp(20px,5vw,64px);border-bottom:1px solid var(--line-soft);
+  font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;
+}
+header.site .brand{text-decoration:none}
+header.site .brand b{color:var(--acc);font-weight:600}
+header.site nav a{color:var(--mut);text-decoration:none;letter-spacing:.14em}
+header.site nav a:hover{color:var(--ink)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
+.hero{
+  display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(32px,6vw,96px);
+  align-items:center;padding:clamp(64px,10vh,120px) 0 clamp(48px,8vh,88px);
+}
+.hero.no-art{grid-template-columns:1fr;max-width:820px}
+.kicker{
+  font:600 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;
+  color:var(--acc);margin-bottom:28px;display:flex;align-items:center;gap:14px;
+}
+.kicker::before{content:"";width:34px;height:1px;background:var(--acc)}
+h1{
+  font:400 clamp(44px,6.2vw,84px)/1.02 var(--serif);
+  letter-spacing:-.015em;font-variation-settings:"opsz" 144;
+}
+h1 em{font-style:normal;font-weight:300;color:var(--mut)}
+.lede{
+  margin-top:28px;max-width:52ch;color:var(--mut);
+  font-size:17px;line-height:1.65;
+}
+.lede b{color:var(--ink);font-weight:500}
+.hero-art{display:flex;justify-content:center}
+.hero-art svg{width:100%;max-width:420px;height:auto}
+.meta-strip{
+  display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.meta-strip div{
+  flex:1 1 200px;padding:22px 28px 22px 0;
+  font:600 11px/1.5 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--faint);
+}
+.meta-strip div + div{padding-left:28px;border-left:1px solid var(--line-soft)}
+.meta-strip span{display:block;margin-top:6px;font:500 20px/1.2 var(--serif);letter-spacing:0;text-transform:none;color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;padding:40px 0 8px}
+.chip{
+  background:none;border:1px solid var(--line);color:var(--mut);
+  font:600 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;
+  padding:10px 18px;border-radius:999px;cursor:pointer;
+  transition:color .15s ease-out,border-color .15s ease-out,background .15s ease-out,transform .1s ease-out;
+}
+.chip:hover{border-color:var(--faint);color:var(--ink)}
+.chip:active{transform:scale(.97)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.entries{list-style:none;padding:0}
+.entry{
+  display:grid;grid-template-columns:64px 1fr;gap:clamp(20px,4vw,56px);
+  padding:clamp(36px,5vh,56px) 0;border-bottom:1px solid var(--line-soft);
+}
+.entry:last-child{border-bottom:0}
+.entry .num{
+  font:400 clamp(20px,2.2vw,26px)/1 var(--serif);
+  color:var(--faint);padding-top:10px;font-variant-numeric:oldstyle-nums;
+}
+.entry h2{font:400 clamp(26px,3vw,38px)/1.1 var(--serif);letter-spacing:-.01em}
+.entry h2 a{text-decoration:none;border-bottom:1px solid transparent;transition:.2s}
+.entry h2 a:hover{border-bottom-color:var(--acc)}
+.entry .cov{
+  margin-top:10px;font:600 11px/1 var(--sans);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);
+}
+.entry .note{margin-top:16px;max-width:62ch;color:var(--mut);font-size:15.5px}
+.entry .meta{
+  margin-top:18px;font:500 12px/1.8 var(--sans);color:var(--faint);
+  display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;
+}
+.entry .meta .tag{letter-spacing:.1em;text-transform:uppercase;font-size:11px}
+.entry .meta a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);transition:.2s}
+.entry .meta a:hover{border-bottom-color:var(--acc);color:var(--acc)}
+.entry.hidden{display:none}
+.sections{border-top:1px solid var(--line);margin-top:24px}
+.sec{
+  display:grid;grid-template-columns:minmax(200px,.9fr) 1.6fr;
+  gap:clamp(24px,5vw,80px);padding:clamp(44px,7vh,72px) 0;
+  border-bottom:1px solid var(--line-soft);
+}
+.sec:last-child{border-bottom:0}
+.sec h3{font:400 clamp(24px,2.6vw,32px)/1.15 var(--serif);letter-spacing:-.01em}
+.sec .sec-k{font:600 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:16px}
+.sec p{color:var(--mut);font-size:15.5px;line-height:1.7;max-width:60ch}
+.sec ul{list-style:none;padding:0;display:grid;gap:22px}
+.sec li{padding-left:22px;border-left:1px solid var(--line);color:var(--mut);font-size:15.5px}
+.sec li b{color:var(--ink);font-weight:500}
+.sec li .src{display:block;margin-top:6px;font:600 11px/1.6 var(--sans);letter-spacing:.1em;text-transform:uppercase}
+.sec a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);transition:.2s}
+.sec a:hover{border-bottom-color:var(--acc);color:var(--acc)}
+blockquote.quote{
+  font:300 clamp(18px,1.8vw,22px)/1.5 var(--serif);
+  color:var(--ink);border-left:1px solid var(--acc);padding-left:22px;
+}
+blockquote.quote .src{font:600 11px/1.6 var(--sans);font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);display:block;margin-top:10px}
+footer{
+  padding:44px clamp(20px,5vw,64px) 56px;color:var(--faint);
+  font-size:13px;line-height:1.7;border-top:1px solid var(--line);
+}
+footer .wrap{padding:0;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer b{color:var(--mut);font-weight:500}
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;padding-top:52px}
+  .hero-art{order:-1;justify-content:flex-start}
+  .hero-art svg{max-width:260px}
+  .entry{grid-template-columns:1fr}
+  .entry .num{padding-top:0}
+  .sec{grid-template-columns:1fr;gap:20px}
+  .meta-strip div{flex:1 1 45%;padding-left:0}
+  .meta-strip div + div{border-left:0;padding-left:0}
+}
+</style>
+</head>
+<body>
 
-header.site{max-width:860px;margin:0 auto;padding:28px 20px 0;display:flex;justify-content:space-between;align-items:baseline}
-header.site a.brand{color:var(--fg);text-decoration:none;font-weight:650;font-size:.95rem;letter-spacing:.02em}
-header.site a.brand span{color:var(--acc)}
-header.site nav a{color:var(--mut);text-decoration:none;font-size:.85rem;margin-left:16px}
-header.site nav a:hover{color:var(--acc)}
-</style></head><body><header class="site"><a class="brand" href="../">Niche<span> // </span>Directories</a><nav><a href="../">All directories</a></nav></header><main>
-<h1>Clothing brands that say where they make it, in Europe</h1><p class="tag">Every brand here publishes its own page naming where the garments are cut and sewn. Each entry links to that proof.</p>
-<div class="chips" id="chips"><button class="chip on" data-c="">All</button><button class="chip" data-c="Baltics">Baltics</button><button class="chip" data-c="England">England</button><button class="chip" data-c="France">France</button><button class="chip" data-c="Italy">Italy</button><button class="chip" data-c="Lithuania">Lithuania</button><button class="chip" data-c="Portugal">Portugal</button><button class="chip" data-c="Romania">Romania</button><button class="chip" data-c="Scotland">Scotland</button><button class="chip" data-c="Slovakia">Slovakia</button></div>
-<div class="card" data-c="Portugal|Italy|Romania">
-<h2><a href="https://www.asket.com" rel="noopener">Asket</a></h2><p class="cov">All cutting and sewing in the EU</p>
-<p style="margin:0 0 8px">States that all cutting, sewing, washing, pressing and packing is done in EU facilities, mostly Portugal and Italy, knitwear in Romania. Mills include some outside Europe (Turkey, Japan, South Korea).</p>
-<p class="meta">Everyday basics &middot; Made in: Portugal, Italy, Romania &middot; <a class="p" href="https://www.asket.com/en-eu/manufacturing" rel="noopener">Brand's own proof</a></p></div><div class="card" data-c="Portugal|Italy|Baltics|France|Scotland">
-<h2><a href="https://www.hastparis.com" rel="noopener">Hast</a></h2><p class="cov">99% in Europe</p>
-<p style="margin:0 0 8px">Says 99% of garments are made in European workshops. Exception: work jackets, made in a French workshop with a branch in Tunisia.</p>
-<p class="meta">Menswear &middot; Made in: Portugal, Italy, Baltics, France, Scotland &middot; <a class="p" href="https://www.hastparis.com/en/pages/savoir-faire" rel="noopener">Brand's own proof</a></p></div><div class="card" data-c="Portugal|Lithuania|Romania|Italy">
-<h2><a href="https://teym.eu" rel="noopener">Teym</a></h2><p class="cov">Factory page lists each product&#39;s factory town</p>
-<p style="margin:0 0 8px">Lists factory towns per product: Esposende and Santo Tirso (Portugal), Kaunas (Lithuania), Bucharest (Romania), Naples (Italy).</p>
-<p class="meta">Basics and outerwear &middot; Made in: Portugal, Lithuania, Romania, Italy &middot; <a class="p" href="https://teym.eu/our-factories/" rel="noopener">Brand's own proof</a></p></div><div class="card" data-c="Italy|Portugal|Slovakia">
-<h2><a href="https://isadore.com" rel="noopener">Isadore</a></h2><p class="cov">All factories in Europe</p>
-<p style="margin:0 0 8px">Says all its factories and manufacturers are in Europe and lists them by city, e.g. Pisa (Italy), Porto (Portugal), a Slovakia site for winter jackets. Cycling apparel.</p>
-<p class="meta">Cycling apparel &middot; Made in: Italy, Portugal, Slovakia &middot; <a class="p" href="https://isadore.com/our-factory-plan" rel="noopener">Brand's own proof</a></p></div><div class="card" data-c="Italy|Lithuania">
-<h2><a href="https://hekne.com" rel="noopener">HEKNE</a></h2><p class="cov">Names each factory and spinning mill</p>
-<p style="margin:0 0 8px">Lists named factories: Ley Tricot (Carpi) and Maglificio Bartolini (Prato) in Italy, Baltic Fashion in Kaunas, plus Italian yarn mills.</p>
-<p class="meta">Knitwear &middot; Made in: Italy, Lithuania &middot; <a class="p" href="https://hekne.com/en-eu/pages/factories" rel="noopener">Brand's own proof</a></p></div><div class="card" data-c="England|Portugal">
-<h2><a href="https://www.sunspel.com" rel="noopener">Sunspel</a></h2><p class="cov">England plus Portugal (UK is not in the EU)</p>
-<p style="margin:0 0 8px">Classic T-shirts made at its own factory in Long Eaton, England. Polos, boxers and underwear made by named family-owned factories in Barcelos and Santo Tirso, Portugal.</p>
-<p class="meta">Underwear and tees &middot; Made in: England, Portugal &middot; <a class="p" href="https://www.sunspel.com/pages/factories" rel="noopener">Brand's own proof</a></p></div>
-<h3>Why this list exists</h3><ul><li>Poster: European manufacturers exist, but where clothes are actually made is hidden, hard to find or missing; brands market as &#39;Italian&#39; or &#39;Scandinavian&#39; without saying. <span class="meta">(<a href="https://www.reddit.com/r/BuyFromEU/comments/1ueovru/why_is_it_so_hard_to_find_clothing_manufactured/" rel="noopener">reddit r/BuyFromEU</a>)</span></li><li>Same question cross-posted, same complaint about unclear manufacturing information. <span class="meta">(<a href="https://www.reddit.com/r/ethicalfashion/comments/1uely3y/why_is_it_so_hard_to_find_clothing_manufactured/" rel="noopener">reddit r/ethicalfashion</a>)</span></li></ul>
-<h3>How a brand gets listed</h3><p>Include a brand only if its own site names the countries (or factories) where garments are made, and the stated production is mostly in Europe. Partial-Europe brands are labeled. No paid placement, no affiliate links.</p>
-<h3>Left out, and why</h3><ul><li><b>Nudie Jeans</b>: Publishes a full supplier list, but its own 2023 report puts European production at 35%, so it is not a Europe-made brand.</li><li><b>Organic Basics</b>: Third-party listing shows Portugal and Turkey production; own page not verified yet.</li></ul>
-<h3>Other lists worth knowing</h3><ul><li><a href="https://feitoemportugal.org/en/categories/fashion-and-clothing" rel="noopener">Feito em Portugal</a> <span class="meta">(Portugal only)</span></li><li><a href="https://eurocraftsmanship.com/brands/" rel="noopener">European Craftsmanship</a> <span class="meta">(curated by taste, not by published factory proof)</span></li><li><a href="https://fromthelabels.com/categories/clothing-brands/european-clothing-brands" rel="noopener">From The Labels</a> <span class="meta">(broad European list, manufacturing detail varies)</span></li></ul>
-<footer>Last checked 2026-11-19. Entries summarize each brand's own published statement; brands can change. Spot an error? Tell us and we will recheck the source.</footer>
-</main><script>
-const cs=[...document.querySelectorAll('.chip')],cards=[...document.querySelectorAll('.card')];
-cs.forEach(b=>b.onclick=()=>{cs.forEach(x=>x.classList.toggle('on',x===b));cards.forEach(c=>c.hidden=b.dataset.c&&!c.dataset.c.split('|').includes(b.dataset.c))});
-</script></body></html>
+<header class="site">
+  <a class="brand" href="../">Niche <b>//</b> Directories</a>
+  <nav><a href="../">All directories</a></nav>
+</header>
+
+<main class="wrap">
+
+  <section class="hero no-art">
+    <div>
+      <p class="kicker">Niche // Directories</p>
+      <h1>Clothing brands that say where they make it, in Europe</h1>
+      <p class="lede">Every brand here publishes its own page naming where the garments are cut and sewn. Each entry links to that proof.</p>
+    </div>
+    
+  </section>
+
+  <div class="meta-strip">
+    
+    <div>Entries listed<span>6, all verified live</span></div>
+    <div>Proof standard<span>Maker&rsquo;s own page, linked</span></div>
+    <div>Affiliate links<span>None, ever</span></div>
+    <div>Last checked<span>Nov 19, 2026</span></div>
+    
+  </div>
+
+  <div class="chips" id="chips">
+    <button class="chip on" data-c="">All</button>
+    <button class="chip" data-c="Baltics">Baltics</button><button class="chip" data-c="England">England</button><button class="chip" data-c="France">France</button><button class="chip" data-c="Italy">Italy</button><button class="chip" data-c="Lithuania">Lithuania</button><button class="chip" data-c="Portugal">Portugal</button><button class="chip" data-c="Romania">Romania</button><button class="chip" data-c="Scotland">Scotland</button><button class="chip" data-c="Slovakia">Slovakia</button>
+  </div>
+
+  <ol class="entries" id="entries">
+    
+    <li class="entry" data-c="Portugal|Italy|Romania">
+      <div class="num">01</div>
+      <div>
+        <h2><a href="https://www.asket.com" rel="noopener">Asket</a></h2>
+        <p class="cov">All cutting and sewing in the EU</p>
+        <p class="note">States that all cutting, sewing, washing, pressing and packing is done in EU facilities, mostly Portugal and Italy, knitwear in Romania. Mills include some outside Europe (Turkey, Japan, South Korea).</p>
+        
+        <p class="meta"><span class="tag">Portugal</span><span class="tag">Italy</span><span class="tag">Romania</span><a href="https://www.asket.com/en-eu/manufacturing" rel="noopener">Maker&rsquo;s product page &#8599;</a></p>
+      </div>
+    </li>
+    
+    <li class="entry" data-c="Portugal|Italy|Baltics|France|Scotland">
+      <div class="num">02</div>
+      <div>
+        <h2><a href="https://www.hastparis.com" rel="noopener">Hast</a></h2>
+        <p class="cov">99% in Europe</p>
+        <p class="note">Says 99% of garments are made in European workshops. Exception: work jackets, made in a French workshop with a branch in Tunisia.</p>
+        
+        <p class="meta"><span class="tag">Portugal</span><span class="tag">Italy</span><span class="tag">Baltics</span><span class="tag">France</span><span class="tag">Scotland</span><a href="https://www.hastparis.com/en/pages/savoir-faire" rel="noopener">Maker&rsquo;s product page &#8599;</a></p>
+      </div>
+    </li>
+    
+    <li class="entry" data-c="Portugal|Lithuania|Romania|Italy">
+      <div class="num">03</div>
+      <div>
+        <h2><a href="https://teym.eu" rel="noopener">Teym</a></h2>
+        <p class="cov">Factory page lists each product’s factory town</p>
+        <p class="note">Lists factory towns per product: Esposende and Santo Tirso (Portugal), Kaunas (Lithuania), Bucharest (Romania), Naples (Italy).</p>
+        
+        <p class="meta"><span class="tag">Portugal</span><span class="tag">Lithuania</span><span class="tag">Romania</span><span class="tag">Italy</span><a href="https://teym.eu/our-factories/" rel="noopener">Maker&rsquo;s product page &#8599;</a></p>
+      </div>
+    </li>
+    
+    <li class="entry" data-c="Italy|Portugal|Slovakia">
+      <div class="num">04</div>
+      <div>
+        <h2><a href="https://isadore.com" rel="noopener">Isadore</a></h2>
+        <p class="cov">All factories in Europe</p>
+        <p class="note">Says all its factories and manufacturers are in Europe and lists them by city, e.g. Pisa (Italy), Porto (Portugal), a Slovakia site for winter jackets. Cycling apparel.</p>
+        
+        <p class="meta"><span class="tag">Italy</span><span class="tag">Portugal</span><span class="tag">Slovakia</span><a href="https://isadore.com/our-factory-plan" rel="noopener">Maker&rsquo;s product page &#8599;</a></p>
+      </div>
+    </li>
+    
+    <li class="entry" data-c="Italy|Lithuania">
+      <div class="num">05</div>
+      <div>
+        <h2><a href="https://hekne.com" rel="noopener">HEKNE</a></h2>
+        <p class="cov">Names each factory and spinning mill</p>
+        <p class="note">Lists named factories: Ley Tricot (Carpi) and Maglificio Bartolini (Prato) in Italy, Baltic Fashion in Kaunas, plus Italian yarn mills.</p>
+        
+        <p class="meta"><span class="tag">Italy</span><span class="tag">Lithuania</span><a href="https://hekne.com/en-eu/pages/factories" rel="noopener">Maker&rsquo;s product page &#8599;</a></p>
+      </div>
+    </li>
+    
+    <li class="entry" data-c="England|Portugal">
+      <div class="num">06</div>
+      <div>
+        <h2><a href="https://www.sunspel.com" rel="noopener">Sunspel</a></h2>
+        <p class="cov">England plus Portugal (UK is not in the EU)</p>
+        <p class="note">Classic T-shirts made at its own factory in Long Eaton, England. Polos, boxers and underwear made by named family-owned factories in Barcelos and Santo Tirso, Portugal.</p>
+        
+        <p class="meta"><span class="tag">England</span><span class="tag">Portugal</span><a href="https://www.sunspel.com/pages/factories" rel="noopener">Maker&rsquo;s product page &#8599;</a></p>
+      </div>
+    </li>
+    
+  </ol>
+
+  <div class="sections">
+
+    <section class="sec">
+      <div><span class="sec-k">01 &middot; Demand</span><h3>Why this list exists</h3></div>
+      <ul>
+        
+        <li>Poster: European manufacturers exist, but where clothes are actually made is hidden, hard to find or missing; brands market as ’Italian’ or ’Scandinavian’ without saying.<span class="src"><a href="https://www.reddit.com/r/BuyFromEU/comments/1ueovru/why_is_it_so_hard_to_find_clothing_manufactured/" rel="noopener">reddit r/BuyFromEU</a></span></li>
+        
+        <li>Same question cross-posted, same complaint about unclear manufacturing information.<span class="src"><a href="https://www.reddit.com/r/ethicalfashion/comments/1uely3y/why_is_it_so_hard_to_find_clothing_manufactured/" rel="noopener">reddit r/ethicalfashion</a></span></li>
+        
+      </ul>
+    </section>
+
+    <section class="sec">
+      <div><span class="sec-k">02 &middot; Standard</span><h3>How a brand gets listed</h3></div>
+      <p>Include a brand only if its own site names the countries (or factories) where garments are made, and the stated production is mostly in Europe. Partial-Europe brands are labeled. No paid placement, no affiliate links.</p>
+    </section>
+
+    
+    <section class="sec">
+      <div><span class="sec-k">03 &middot; Exclusions</span><h3>Left out, and why</h3></div>
+      <ul>
+        <li><b>Nudie Jeans.</b> Publishes a full supplier list, but its own 2023 report puts European production at 35%, so it is not a Europe-made brand.</li><li><b>Organic Basics.</b> Third-party listing shows Portugal and Turkey production; own page not verified yet.</li>
+      </ul>
+    </section>
+    
+
+    
+    <section class="sec">
+      <div><span class="sec-k">04 &middot; Elsewhere</span><h3>Other lists worth knowing</h3></div>
+      <ul>
+        <li><a href="https://feitoemportugal.org/en/categories/fashion-and-clothing" rel="noopener">Feito em Portugal</a><span class="src">Portugal only</span></li><li><a href="https://eurocraftsmanship.com/brands/" rel="noopener">European Craftsmanship</a><span class="src">curated by taste, not by published factory proof</span></li><li><a href="https://fromthelabels.com/categories/clothing-brands/european-clothing-brands" rel="noopener">From The Labels</a><span class="src">broad European list, manufacturing detail varies</span></li>
+      </ul>
+    </section>
+    
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b>Last checked 2026-11-19.</b> Entries summarize each brand&rsquo;s own published statement; brands can change.</div>
+    <div>Spot an error? Tell us and we will recheck the source.</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('chips').addEventListener('click', function(e){
+  var b = e.target.closest('.chip'); if(!b) return;
+  document.querySelectorAll('.chip').forEach(function(c){ c.classList.remove('on'); });
+  b.classList.add('on');
+  var c = b.dataset.c;
+  document.querySelectorAll('.entry').forEach(function(el){
+    el.classList.toggle('hidden', c && el.dataset.c.split('|').indexOf(c) === -1);
+  });
+});
+</script>
+</body>
+</html>

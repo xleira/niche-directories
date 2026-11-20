@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Machined pens made in the USA, direct from their makers</title>
+<meta name="description" content="A starting list for metal-pen shoppers: maker product pages, stated manufacturing locations and each maker’s own refill notes. Details are maker claims, not independent testing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#121110; --panel:#171614; --ink:#ece7de; --mut:#9d968c; --faint:#6d675f;
+  --line:#292723; --line-soft:#201e1b; --acc:#e0602a; --acc-dim:#a34a22;
+  --serif:"Fraunces",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+::selection{background:var(--acc);color:#121110}
+a{color:inherit}
+header.site{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:22px clamp(20px,5vw,64px);border-bottom:1px solid var(--line-soft);
+  font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;
+}
+header.site .brand{text-decoration:none}
+header.site .brand b{color:var(--acc);font-weight:600}
+header.site nav a{color:var(--mut);text-decoration:none;letter-spacing:.14em}
+header.site nav a:hover{color:var(--ink)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
+.hero{
+  display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(32px,6vw,96px);
+  align-items:center;padding:clamp(64px,10vh,120px) 0 clamp(48px,8vh,88px);
+}
+.hero.no-art{grid-template-columns:1fr;max-width:820px}
+.kicker{
+  font:600 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;
+  color:var(--acc);margin-bottom:28px;display:flex;align-items:center;gap:14px;
+}
+.kicker::before{content:"";width:34px;height:1px;background:var(--acc)}
+h1{
+  font:400 clamp(44px,6.2vw,84px)/1.02 var(--serif);
+  letter-spacing:-.015em;font-variation-settings:"opsz" 144;
+}
+h1 em{font-style:normal;font-weight:300;color:var(--mut)}
+.lede{
+  margin-top:28px;max-width:52ch;color:var(--mut);
+  font-size:17px;line-height:1.65;
+}
+.lede b{color:var(--ink);font-weight:500}
+.hero-art{display:flex;justify-content:center}
+.hero-art svg{width:100%;max-width:420px;height:auto}
+.meta-strip{
+  display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.meta-strip div{
+  flex:1 1 200px;padding:22px 28px 22px 0;
+  font:600 11px/1.5 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--faint);
+}
+.meta-strip div + div{padding-left:28px;border-left:1px solid var(--line-soft)}
+.meta-strip span{display:block;margin-top:6px;font:500 20px/1.2 var(--serif);letter-spacing:0;text-transform:none;color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;padding:40px 0 8px}
+.chip{
+  background:none;border:1px solid var(--line);color:var(--mut);
+  font:600 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;
+  padding:10px 18px;border-radius:999px;cursor:pointer;
+  transition:color .15s ease-out,border-color .15s ease-out,background .15s ease-out,transform .1s ease-out;
+}
+.chip:hover{border-color:var(--faint);color:var(--ink)}
+.chip:active{transform:scale(.97)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.entries{list-style:none;padding:0}
+.entry{
+  display:grid;grid-template-columns:64px 1fr;gap:clamp(20px,4vw,56px);
+  padding:clamp(36px,5vh,56px) 0;border-bottom:1px solid var(--line-soft);
+}
+.entry:last-child{border-bottom:0}
+.entry .num{
+  font:400 clamp(20px,2.2vw,26px)/1 var(--serif);
+  color:var(--faint);padding-top:10px;font-variant-numeric:oldstyle-nums;
+}
+.entry h2{font:400 clamp(26px,3vw,38px)/1.1 var(--serif);letter-spacing:-.01em}
+.entry h2 a{text-decoration:none;border-bottom:1px solid transparent;transition:.2s}
+.entry h2 a:hover{border-bottom-color:var(--acc)}
+.entry .cov{
+  margin-top:10px;font:600 11px/1 var(--sans);letter-spacing:.16em;
+  text-transform:uppercase;color:var(--acc);
+}
+.entry .note{margin-top:16px;max-width:62ch;color:var(--mut);font-size:15.5px}
+.entry .meta{
+  margin-top:18px;font:500 12px/1.8 var(--sans);color:var(--faint);
+  display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;
+}
+.entry .meta .tag{letter-spacing:.1em;text-transform:uppercase;font-size:11px}
+.entry .meta a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);transition:.2s}
+.entry .meta a:hover{border-bottom-color:var(--acc);color:var(--acc)}
+.entry.hidden{display:none}
+.sections{border-top:1px solid var(--line);margin-top:24px}
+.sec{
+  display:grid;grid-template-columns:minmax(200px,.9fr) 1.6fr;
+  gap:clamp(24px,5vw,80px);padding:clamp(44px,7vh,72px) 0;
+  border-bottom:1px solid var(--line-soft);
+}
+.sec:last-child{border-bottom:0}
+.sec h3{font:400 clamp(24px,2.6vw,32px)/1.15 var(--serif);letter-spacing:-.01em}
+.sec .sec-k{font:600 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:16px}
+.sec p{color:var(--mut);font-size:15.5px;line-height:1.7;max-width:60ch}
+.sec ul{list-style:none;padding:0;display:grid;gap:22px}
+.sec li{padding-left:22px;border-left:1px solid var(--line);color:var(--mut);font-size:15.5px}
+.sec li b{color:var(--ink);font-weight:500}
+.sec li .src{display:block;margin-top:6px;font:600 11px/1.6 var(--sans);letter-spacing:.1em;text-transform:uppercase}
+.sec a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);transition:.2s}
+.sec a:hover{border-bottom-color:var(--acc);color:var(--acc)}
+blockquote.quote{
+  font:300 clamp(18px,1.8vw,22px)/1.5 var(--serif);
+  color:var(--ink);border-left:1px solid var(--acc);padding-left:22px;
+}
+blockquote.quote .src{font:600 11px/1.6 var(--sans);font-style:normal;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);display:block;margin-top:10px}
+footer{
+  padding:44px clamp(20px,5vw,64px) 56px;color:var(--faint);
+  font-size:13px;line-height:1.7;border-top:1px solid var(--line);
+}
+footer .wrap{padding:0;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer b{color:var(--mut);font-weight:500}
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;padding-top:52px}
+  .hero-art{order:-1;justify-content:flex-start}
+  .hero-art svg{max-width:260px}
+  .entry{grid-template-columns:1fr}
+  .entry .num{padding-top:0}
+  .sec{grid-template-columns:1fr;gap:20px}
+  .meta-strip div{flex:1 1 45%;padding-left:0}
+  .meta-strip div + div{border-left:0;padding-left:0}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <a class="brand" href="../">Niche <b>//</b> Directories</a>
+  <nav><a href="../">All directories</a></nav>
+</header>
+
+<main class="wrap">
+
+  <section class="hero no-art">
+    <div>
+      <p class="kicker">Directory Nº 05 · Writing gear</p>
+      <h1>A better pen,<br>straight from<br><em>the maker.</em></h1>
+      
+      <p class="lede">A focused index of US-made machined pens. Each entry links the maker’s own page for the product, manufacturing note and refill details. No retailer rankings, paid placement or affiliate links.</p>
+    </div>
+    
+  </section>
+
+  <div class="meta-strip">
+    <div>Entries listed<span>5 maker pages checked</span></div><div>Proof standard<span>Maker’s own product pages</span></div><div>Stock status<span>Not guaranteed</span></div><div>Last checked<span>Nov 20, 2026</span></div>
+    
+  </div>
+
+  <div class="chips" id="chips">
+    <button class="chip on" data-c="">All</button>
+    <button class="chip" data-c="Brass">Brass</button><button class="chip" data-c="Bronze">Bronze</button><button class="chip" data-c="Copper">Copper</button><button class="chip" data-c="Titanium">Titanium</button>
+  </div>
+
+  <ol class="entries" id="entries">
+    
+    <li class="entry" data-c="Titanium">
+      <div class="num">01</div>
+      <div>
+        <h2><a href="https://tactileturn.com/" rel="noopener">Tactile Turn Titanium Bolt Action Pen</a></h2>
+        <p class="cov">Maker says it machines and assembles its pens in Dallas, Texas</p>
+        <p class="note">The maker’s page lists Titanium Bolt Action pens, describes the work as machined in Dallas and gives refill formats by size: Standard uses Pilot G2 / Euro-style; Short uses Schmidt EasyFlow / Parker-style. These are maker statements; current stock is not asserted.</p>
+        
+        <p class="meta"><span class="tag">Bolt action</span><span class="tag">Titanium</span><a href="https://tactileturn.com/" rel="noopener">Maker&rsquo;s product page &#8599;</a></p>
+      </div>
+    </li>
+    
+    <li class="entry" data-c="Titanium|Copper|Brass">
+      <div class="num">02</div>
+      <div>
+        <h2><a href="https://nottinghamtactical.com/" rel="noopener">Nottingham Tactical NottaBolt Titanium</a></h2>
+        <p class="cov">Maker page states machined and assembled in the USA</p>
+        <p class="note">The NottaBolt product page lists titanium, copper and brass options and compatibility with Parker-style, Pilot G2 Full Size and G2 Mini refills. Refill and manufacture details are the maker’s own statements; no stock claim is made here.</p>
+        
+        <p class="meta"><span class="tag">Bolt action</span><span class="tag">Titanium</span><span class="tag">Copper</span><span class="tag">Brass</span><a href="https://nottinghamtactical.com/products/nottabolt-titanium" rel="noopener">Maker&rsquo;s product page &#8599;</a></p>
+      </div>
+    </li>
+    
+    <li class="entry" data-c="Titanium">
+      <div class="num">03</div>
+      <div>
+        <h2><a href="https://bigidesign.com/" rel="noopener">BIGiDESIGN USA Bolt Action Pen</a></h2>
+        <p class="cov">Maker says precision machined and assembled in Chattanooga, Tennessee</p>
+        <p class="note">The product page lists a titanium pen, a Schmidt MegaLine refill and a maker-hosted compatible-refill list. The maker says the pen is machined and assembled in-house in Chattanooga. These are product-page statements, not an independent assessment.</p>
+        
+        <p class="meta"><span class="tag">Bolt action</span><span class="tag">Titanium</span><a href="https://bigidesign.com/products/usa-bolt-action-pen" rel="noopener">Maker&rsquo;s product page &#8599;</a></p>
+      </div>
+    </li>
+    
+    <li class="entry" data-c="Titanium|Bronze">
+      <div class="num">04</div>
+      <div>
+        <h2><a href="https://aerocrafted.com/" rel="noopener">Aerocrafted Retract Click Pen</a></h2>
+        <p class="cov">Maker says precision CNC machined and made in the USA</p>
+        <p class="note">The maker page lists titanium/bronze options, a Parker-size version and a smaller Pilot G2 Mini version, and says the pen is precision CNC machined and made in the USA. Availability changes, so this directory does not promise current stock.</p>
+        
+        <p class="meta"><span class="tag">Click</span><span class="tag">Titanium</span><span class="tag">Bronze</span><a href="https://aerocrafted.com/products/retract-click-pen" rel="noopener">Maker&rsquo;s product page &#8599;</a></p>
+      </div>
+    </li>
+    
+    <li class="entry" data-c="Titanium|Brass|Copper">
+      <div class="num">05</div>
+      <div>
+        <h2><a href="https://darksucks.com/" rel="noopener">Prometheus Writes Alpha Executive Pen</a></h2>
+        <p class="cov">Maker says machining is done in its Mountain View, California shop</p>
+        <p class="note">The maker’s product page describes the Alpha as made in its own shop and machined in Mountain View. It is designed for Montblanc Fineliner or Rollerball refills; the page also describes a Parker adapter kit and Schmidt EasyFlow refill. Stock status and prices can change and are not claimed here.</p>
+        
+        <p class="meta"><span class="tag">Capped</span><span class="tag">Titanium</span><span class="tag">Brass</span><span class="tag">Copper</span><a href="https://darksucks.com/collections/alpha-executive-pens/products/alpha-pen-ti" rel="noopener">Maker&rsquo;s product page &#8599;</a></p>
+      </div>
+    </li>
+    
+  </ol>
+
+  <div class="sections">
+
+    <section class="sec">
+      <div><span class="sec-k">01 &middot; Demand</span><h3>Why this list exists</h3></div>
+      <ul>
+        
+        <li>A community member created a maker reference list for newcomers and returning buyers; the post had 27 points and 103 comments when fetched. This supports ongoing interest in a finder, though it is a 2021 source.<span class="src"><a href="https://www.reddit.com/r/machinedpens/comments/rg03nx/comprehensive_maker_reference_list/" rel="noopener">r/machinedpens</a></span></li>
+        
+        <li>A buyer asked for online stores with a broad variety of machined-pen makers, models and materials; comments discuss buying direct from makers.<span class="src"><a href="https://www.reddit.com/r/machinedpens/comments/16osqlv/best_online_stores_to_buy_pens/" rel="noopener">r/machinedpens</a></span></li>
+        
+        <li>A June 2026 guide compares machined pens and discusses materials, size and refill compatibility, evidence of consumer interest and an existing broad guide to account for.<span class="src"><a href="https://www.jetpens.com/blog/The-Best-Machined-Pens/pt/973" rel="noopener">JetPens guide</a></span></li>
+        
+      </ul>
+    </section>
+
+    <section class="sec">
+      <div><span class="sec-k">02 &middot; Standard</span><h3>How a brand gets listed</h3></div>
+      <p>Include a metal pen only when its maker’s own live product or maker page identifies the pen, explicitly states US manufacture or assembly, and supplies usable product or refill details. Link to that source. Do not infer present stock from a live page, repeat unverified quality claims as facts, or accept third-party listings as proof. No paid placement or affiliate links.</p>
+    </section>
+
+    
+    <section class="sec">
+      <div><span class="sec-k">03 &middot; Exclusions</span><h3>Left out, and why</h3></div>
+      <ul>
+        <li><b>Q3D.</b> Its official page says the pens are CNC precision writing instruments made in the USA, but invites shoppers to learn how future drops work rather than presenting a qualifying specific live product listing for this directory.</li><li><b>Honey Badger Arsenal.</b> The official page supports US design/manufacture and displays several products, but this first pass has not individually checked a product-specific maker URL for each candidate entry. Revisit after direct product-page checks.</li><li><b>Retailer-only or community-list entries.</b> Not included unless a maker’s own live page verifies the individual product and US manufacturing details.</li>
+      </ul>
+    </section>
+    
+
+    
+    <section class="sec">
+      <div><span class="sec-k">04 &middot; Elsewhere</span><h3>Other lists worth knowing</h3></div>
+      <ul>
+        <li><a href="https://www.reddit.com/r/machinedpens/comments/rg03nx/comprehensive_maker_reference_list/" rel="noopener">r/machinedpens community reference list</a><span class="src">Broad, community-maintained maker/modder list begun in 2021; this directory narrows to US-made product pages and uses each maker’s own statements for location and refill details.</span></li><li><a href="https://www.jetpens.com/blog/The-Best-Machined-Pens/pt/973" rel="noopener">JetPens: The Best Machined Pens</a><span class="src">Editorial recommendations across pen types; this directory is a direct-to-maker index, with no retailer rankings or affiliate placements.</span></li>
+      </ul>
+    </section>
+    
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b>Last checked 2026-11-20.</b> Entries summarize each brand&rsquo;s own published statement; brands can change.</div>
+    <div>Spot an error? Tell us and we will recheck the source.</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('chips').addEventListener('click', function(e){
+  var b = e.target.closest('.chip'); if(!b) return;
+  document.querySelectorAll('.chip').forEach(function(c){ c.classList.remove('on'); });
+  b.classList.add('on');
+  var c = b.dataset.c;
+  document.querySelectorAll('.entry').forEach(function(el){
+    el.classList.toggle('hidden', c && el.dataset.c.split('|').indexOf(c) === -1);
+  });
+});
+</script>
+</body>
+</html>
